@@ -11,7 +11,7 @@ ADD CONSTRAINT level_enum_values
 CHECK (level IN('Trainee', 'Junior', 'Middle', 'Senior'));
 
 CREATE TABLE client (
-    client IDENTITY PRIMARY KEY,
+    id IDENTITY PRIMARY KEY,
     name VARCHAR(1000) NOT NULL
 );
 
@@ -25,7 +25,7 @@ CREATE TABLE project (
 ALTER TABLE project 
 ADD CONSTRAINT client_id_fk
 FOREIGN KEY(client_id) 
-REFERENCES client(client);
+REFERENCES client(id);
 
 CREATE TABLE project_worker (
     project_id BIGINT,
